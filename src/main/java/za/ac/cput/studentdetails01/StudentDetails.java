@@ -11,4 +11,32 @@ package za.ac.cput.studentdetails01;
  */
 public class StudentDetails {
     
+  public boolean CellNumberVerifier (String cellNumber)
+    {
+
+        boolean isCellNumberValid = true;
+        if(cellNumber == null)
+        {
+           isCellNumberValid = false;
+        }
+        else 
+        {
+            if (isCellLengthValid(cellNumber)) 
+            {
+                for (int i = 0; i < cellNumber.length(); i++) 
+                {
+                    char character = cellNumber.charAt(i);
+                    if(!(Character.isDigit(character))) isCellNumberValid = false;
+                }
+            }else { isCellNumberValid = false; }
+        } 
+        return isCellNumberValid;
+    }
+    
+    private static boolean isCellLengthValid(String cell)
+    {
+        if(cell.length() == 10) return true;
+        else return false;
+    }
+      
 }
